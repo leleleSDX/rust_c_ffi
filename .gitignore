@@ -43,25 +43,6 @@ desktop.ini
 # C 
 *.o
 
-#Lua related
-*.luac
-*.luac.out
-
-#LuaRocks
-luarocks.lock
-luarocks/
-rockspec-*.rockspec
-
-#mlua / build bindings / generated files
-/bindings.h
-/bindings.rs
-/bindings.c
-/build/
-/cmake-build-debug/
-/CMakeFiles/
-/CMakeCache.txt
-/*.cmake
-Makefile
 
 #pkg-config and external libs
 /pkgconfig/
