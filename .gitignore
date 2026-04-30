@@ -1,0 +1,116 @@
+##Rust + Lua (mlua) .gitignore
+
+#Compiled Rust artifacts
+/target/
+**/target/
+
+#Cargo
+/Cargo.lock
+
+#Rust incremental compilation, caches, and IDE files
+**/.rs.bk
+**/.rmeta
+**/*.d
+/.cargo/
+/.cargo/
+
+#Build output of cargo build --release
+/target/release/
+/target/debug/
+
+#Caches created by rust-analyzer, IDEs, and editors
+/target/.fingerprint/
+.idea/
+/.vscode/
+/.vscode/*
+
+#macOS
+.DS_Store
+
+#Linux thumbnail cache
+.thumbnails/
+
+#Windows
+Thumbs.db
+desktop.ini
+
+#Generated binaries (common names)
+*.exe
+*.dll
+*.so
+*.dylib
+
+# C 
+*.o
+
+#Lua related
+*.luac
+*.luac.out
+
+#LuaRocks
+luarocks.lock
+luarocks/
+rockspec-*.rockspec
+
+#mlua / build bindings / generated files
+/bindings.h
+/bindings.rs
+/bindings.c
+/build/
+/cmake-build-debug/
+/CMakeFiles/
+/CMakeCache.txt
+/*.cmake
+Makefile
+
+#pkg-config and external libs
+/pkgconfig/
+*.pc
+
+#Temporary files
+*.swp
+*~
+*.tmp
+*.bak
+*.old
+
+#Logs
+*.log
+
+#Coverage and test output
+/coverage/
+/*.lcov
+/target/coverage/
+
+#Node (if project has frontend or tooling)
+node_modules/
+npm-debug.log
+yarn.lock
+
+#Python virtualenvs (if present)
+venv/
+.env
+.envrc
+
+#Secrets and environment
+.env.local
+.env.*.local
+secrets.toml
+
+#Editor temp files
+*.swo
+*.swn
+
+#Optional: ignore examples' compiled artifacts if present
+/examples/**/target/
+
+#If you vendor dependencies, ignore the vendor build outputs
+/vendor/**/target/
+
+## resources
+#fonts
+*.ttf
+*.otf
+*.bdf
+#images
+*.png
