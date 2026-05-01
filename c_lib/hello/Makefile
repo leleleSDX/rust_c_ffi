@@ -1,16 +1,26 @@
 CC = gcc
+AR = ar
+ARFLAGS = rcs
 CFLAGS = -Wall -Wextra -fPIC
 SOURCES = src/hello.c
-OBJECTS = $(SOURCES:.c=.o)
 INCLUDE = -Iinclude
-TARGET = libhello.so
+BUILD_DIR = ../build
+#OBJECTS = $(SOURCES:.c=.o)
+OBJECTS = $(SOURCES:%=$(BUILD_DIR)/%.o)
+TARGET_DIR = ../target
+#TARGET = libhello.a
+TARGET = $(TARGET_DIR)/libhello.a
 
 .PHONY: all clean
 
 all: $(TARGET)
 
+#$(TARGET): $(OBJECTS)
+#	$(CC) -shared -o $@ $^
+
+# static builc
 $(TARGET): $(OBJECTS)
-	$(CC) -shared -o $@ $^
+	$(AR) $(ARFLAGS) $@ $^
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
