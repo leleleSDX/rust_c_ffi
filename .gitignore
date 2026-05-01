@@ -6,7 +6,7 @@
 
 #Cargo
 /Cargo.lock
-#**/Cargo.lock
+**/Cargo.lock
 
 #Rust incremental compilation, caches, and IDE files
 **/.rs.bk
