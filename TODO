@@ -1,0 +1,3 @@
+* Makefile for static AR RCS archive
+* build.rs to to static lib
+* sh script to to build "$LIBNAME" C and rust crate build.rs
