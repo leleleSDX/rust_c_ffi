@@ -11,8 +11,6 @@
 **/.rs.bk
 **/.rmeta
 **/*.d
-/.cargo/
-/.cargo/
 
 #Build output of cargo build --release
 /target/release/
