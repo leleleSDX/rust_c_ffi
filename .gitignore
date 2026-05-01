@@ -38,9 +38,9 @@ desktop.ini
 *.so
 *.dylib
 
-# C 
+# C artifacts
 *.o
-
+*.a
 
 #pkg-config and external libs
 /pkgconfig/
