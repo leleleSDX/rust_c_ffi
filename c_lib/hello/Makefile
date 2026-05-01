@@ -28,6 +28,10 @@ $(TARGET): $(OBJECTS)
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
+main: $(SRC_DIR)/main.o
+$(SRC_DIR)/main.o: $(SRC_DIR)/main.c
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+
 clean:
 	rm -f $(OBJECTS) $(TARGET)
 
