@@ -18,3 +18,9 @@ int give_back(int num)
 	printf("C> got %d\n", num);
 	return num + 1;
 }
+
+void modify_num(int *num)
+{
+	printf("C> got %d\n", *num);
+	*num = *num + 1;
+}
