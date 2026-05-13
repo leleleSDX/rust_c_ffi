@@ -68,9 +68,8 @@ fn c_give_back(num: i32)
 	};
 	println!("rust> got back {got_num} from C");
 }
-fn c_modify_num(num: i32)-> i32
+fn c_modify_num(mut num: i32)-> i32
 {
-	let mut num = num;
 	let num_ptr
 	= &mut num;
 	unsafe{
