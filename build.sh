@@ -1,10 +1,10 @@
 #!/bin/bash
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
-echo $ROOT_DIR
+#echo $ROOT_DIR
 C_LIB=$ROOT_DIR/c_lib
-echo $C_LIB
+#echo $C_LIB
 RS_FFI=$ROOT_DIR/rs_ffi
-echo $RS_FFI
+#echo $RS_FFI
 LIB_NAME=$1
 echo "building" $LIB_NAME
 # check if it's there
