@@ -44,7 +44,7 @@ unsafe extern "C"
 }
 unsafe extern "C"
 {
-	unsafe fn modify_name(name: *const c_char);
+	unsafe fn modify_name(name: *const c_char)-> *mut c_char;
 }
 fn c_hello()
 {
@@ -87,12 +87,15 @@ fn c_modify_name(
 {
 	let mut name
 	= CString::new(str.as_ref())?;
-	unsafe{
-		modify_name(name.as_ptr());
+	let raw_name
+	= unsafe{
+		modify_name(name.as_ptr())
 	};
-	let modified_name
-	= name.into_string()?;
-	Ok(modified_name)
+	let modified
+	= unsafe{
+		CString::from_raw(raw_name)
+	}.into_string()?;
+	Ok(modified)
 }
 fn main()-> SR_
 {
