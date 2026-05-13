@@ -31,7 +31,7 @@ char* modify_name(char *name)
 	int i = 0;
 	while (*name != '\0')
 	{
-		*name = *name + 1;
+		*name = *name - 2;
 		name++;
 		i++;
 	}
