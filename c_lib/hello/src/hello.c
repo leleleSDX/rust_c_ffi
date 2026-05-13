@@ -30,8 +30,10 @@ char* modify_name(const char *name)
 	char *modified = "";
 	printf("C> modifying %s\n", name);
 	int i = 0;
+	printf("name on %d: %c", i, name[i]);
 	while (name[i] != '\0')
 	{
+		printf("name on %d: %c", i, name[i]);
 		modified[i] = name[i] + 1;
 		i++;
 	}
