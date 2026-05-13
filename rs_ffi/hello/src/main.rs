@@ -44,7 +44,7 @@ unsafe extern "C"
 }
 unsafe extern "C"
 {
-	unsafe fn modify_name(name: *const c_char)-> *mut c_char;
+	unsafe fn modify_name(name: *mut c_char)-> *mut c_char;
 }
 fn c_hello()
 {
@@ -89,7 +89,7 @@ fn c_modify_name(
 	= CString::new(str.as_ref())?;
 	let raw_name
 	= unsafe{
-		modify_name(name.as_ptr())
+		modify_name(name.into_raw())
 	};
 	let modified
 	= unsafe{
@@ -101,7 +101,7 @@ fn main()-> SR_
 {
 	let num = c_modify_num(12);
 	println!("rust> got {num} back from C");
-	let name = c_modify_name("EXTERN")?;
+	let name = c_modify_name("william")?;
 	println!("rust> got {name} back from C");
 	OK_
 }

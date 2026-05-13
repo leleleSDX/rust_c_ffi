@@ -25,18 +25,17 @@ void modify_num(int *num)
 	*num = *num + 1;
 }
 
-char* modify_name(const char *name)
+char* modify_name(char *name)
 {
-	char *modified = "";
 	printf("C> modifying %s\n", name);
 	int i = 0;
-	printf("name on %d: %c", i, name[i]);
-	while (name[i] != '\0')
+	while (*name != '\0')
 	{
-		printf("name on %d: %c", i, name[i]);
-		modified[i] = name[i] + 1;
+		*name = *name + 1;
+		name++;
 		i++;
 	}
-	printf("C> %s is modified\n", modified);
-	return modified;
+	name = name - i;
+	printf("C> %s is modified\n", name);
+	return name;
 }
