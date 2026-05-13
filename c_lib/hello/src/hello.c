@@ -21,6 +21,13 @@ int give_back(int num)
 
 void modify_num(int *num)
 {
-	printf("C> got %d\n", *num);
+	printf("C> modifying %d\n", *num);
 	*num = *num + 1;
+}
+
+void modify_name(char *name)
+{
+	printf("C> modifying %s\n", name);
+	name[0] = 'C';
+	printf("C> %s is modified\n", name);
 }

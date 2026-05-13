@@ -42,6 +42,10 @@ unsafe extern "C"
 {
 	unsafe fn modify_num(num: *mut c_int);
 }
+unsafe extern "C"
+{
+	unsafe fn modify_name(name: *const c_char);
+}
 fn c_hello()
 {
 	unsafe{
@@ -77,9 +81,24 @@ fn c_modify_num(mut num: i32)-> i32
 	};
 	return num;
 }
+fn c_modify_name(
+	str: impl AsRef<str>
+)-> SR<String>
+{
+	let mut name
+	= CString::new(str.as_ref())?;
+	unsafe{
+		modify_name(name.as_ptr());
+	};
+	let modified_name
+	= name.into_string()?;
+	Ok(modified_name)
+}
 fn main()-> SR_
 {
-	let num = c_modify_num(-14);
+	let num = c_modify_num(12);
 	println!("rust> got {num} back from C");
+	let name = c_modify_name("EXTERN")?;
+	println!("rust> got {name} back from C");
 	OK_
 }
