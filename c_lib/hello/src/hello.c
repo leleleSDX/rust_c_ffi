@@ -39,3 +39,8 @@ char* modify_name(char *name)
 	printf("C> %s is modified\n", name);
 	return name;
 }
+
+void display_str(const char *str)
+{
+	printf("%s\n", str);
+}
