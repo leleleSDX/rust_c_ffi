@@ -1,6 +1,7 @@
 #![cfg_attr(
 	feature = "proto", 
-	allow(unused, dead_code
-	)
+	allow(unused, dead_code)
 )]
-pub mod cmd;
+pub mod prelude;
+pub mod ffi;
+pub mod prolog;
