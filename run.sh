@@ -8,7 +8,7 @@ RS_FFI=$ROOT_DIR/rs_ffi
 EXEC_NAME=$1
 if [ -f $RS_FFI/$EXEC_NAME/Cargo.toml ]; then
 	echo "running" $EXEC_NAME
-	cd $RS_FFI/$LIB_NAME
+	cd $RS_FFI/$EXEC_NAME
 	cargo run
 	cd $ROOT_DIR
 fi
