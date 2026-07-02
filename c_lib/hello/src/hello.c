@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "../include/hello.h"
 
 void hello(void)
@@ -38,6 +39,17 @@ char* modify_name(char *name)
 	name = name - i;
 	printf("C> %s is modified\n", name);
 	return name;
+}
+void shorten_str(char *str)
+{
+	printf("C> modifying %s\n", str);
+	*str = '\0';
+	printf("C> %s is modified\n", str);
+}
+void free_str(char *str)
+{
+	printf("C> dropping %s \n", str);
+	free(str);
 }
 
 void display_str(const char *str)

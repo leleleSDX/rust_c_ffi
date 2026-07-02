@@ -29,22 +29,28 @@ const OK_: SR_ = Ok(());
 unsafe extern "C"
 {
 	unsafe fn hello();
-}
-unsafe extern "C"
-{
+
 	unsafe fn hello_name(name: *const c_char);
-}
-unsafe extern "C"
-{
+
 	unsafe fn give_back(num: c_int)-> c_int;
-}
-unsafe extern "C"
-{
+
 	unsafe fn modify_num(num: *mut c_int);
-}
-unsafe extern "C"
-{
 	unsafe fn modify_name(name: *mut c_char)-> *mut c_char;
+	fn shorten_str(c_str: *mut c_char);
+	fn free_str(c_str: *mut c_char);
+}
+fn c_shorten_str(text: &mut String)
+{
+	//let cs_ptr = c_str.into_raw();
+	unsafe {
+		shorten_str(text.as_ptr() as *mut c_char);
+	}
+}
+fn c_free_str(text: &String)
+{
+	unsafe {
+		free_str(text.as_ptr() as *mut c_char);
+	}	
 }
 fn c_hello()
 {
@@ -99,9 +105,8 @@ fn c_modify_name(
 }
 fn main()-> SR_
 {
-	let num = c_modify_num(12);
-	println!("rust> got {num} back from C");
-	let name = c_modify_name("william")?;
-	println!("rust> got {name} back from C");
+	let text = format!("hello rom R");
+	c_free_str(&text);
+	dbg!(&text);
 	OK_
 }
