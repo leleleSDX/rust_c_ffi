@@ -46,11 +46,21 @@ fn c_shorten_str(text: &mut String)
 		shorten_str(text.as_ptr() as *mut c_char);
 	}
 }
-fn c_free_str(text: &String)
+fn c_free_str(text: &str) -> SR_
 {
+	//let c_str
+	//= CString::new(text)?;
+	//let raw_c_ctr = c_str.into_raw();
 	unsafe {
 		free_str(text.as_ptr() as *mut c_char);
-	}	
+	}
+	/*
+	let c_str 
+	= unsafe {
+		CString::from_raw(raw_c_ctr)
+	};
+	*/
+	OK_
 }
 fn c_hello()
 {
