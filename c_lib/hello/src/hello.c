@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "../include/hello.h"
 
 void hello(void)
@@ -55,4 +56,13 @@ void free_str(char *str)
 void display_str(const char *str)
 {
 	printf("%s\n", str);
+}
+char* give_str(const char *gift)
+{
+	char *give = malloc(strlen(gift) + 1);
+	if (give != NULL)
+	{
+		strcpy(give, gift);
+	}
+	return give;
 }

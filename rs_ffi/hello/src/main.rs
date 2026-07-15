@@ -6,11 +6,13 @@
 	)
 )]
 use std::{
-	ffi::{
+	borrow::Cow, 
+  ffi::{
+    CStr,
 		CString,
 		c_char,
 		c_int,
-	},
+	}
 };
 use std::{
 	boxed::{
@@ -38,8 +40,9 @@ unsafe extern "C"
 	unsafe fn modify_name(name: *mut c_char)-> *mut c_char;
 	fn shorten_str(c_str: *mut c_char);
 	fn free_str(c_str: *mut c_char);
+  fn give_str(gift: *const c_char)-> *mut c_char;
 }
-fn c_shorten_str(text: &mut String)
+fn c_shorten_str(text: &str)
 {
 	//let cs_ptr = c_str.into_raw();
 	unsafe {
@@ -113,10 +116,23 @@ fn c_modify_name(
 	}.into_string()?;
 	Ok(modified)
 }
+fn c_give_str(gift: &str)-> CString
+{
+	let c_gift
+	= CString::new(gift)
+		.unwrap_or_default();
+	let raw_c_str = unsafe {
+		give_str(c_gift.as_ptr())	
+	};
+	let c_str = unsafe {
+		CString::from_raw(raw_c_str)
+	};
+	c_str
+}
 fn main()-> SR_
 {
-	let text = format!("hello rom R");
-	c_free_str(&text);
+	//let text = format!("hello from Rust");
+	let text = c_give_str("hello this is gift");
 	dbg!(&text);
 	OK_
 }

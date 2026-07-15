@@ -8,5 +8,6 @@ void modify_num(int *num);
 char* modify_name(char *name);
 void shorten_str(char *str);
 void free_str(char *str);
+char* give_str(const char *gift);
 
 #endif
